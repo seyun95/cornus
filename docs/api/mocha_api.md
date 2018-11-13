@@ -10,7 +10,7 @@ API 사용 방법 정리
 
 **Example request**:
 
-    GET /create/json?all=1&before=8dfafdbc3a40&size=1 HTTP/1.1
+    GET /create?name=rule1&time_slice=1h
 
 **Example response**:
     
