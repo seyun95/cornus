@@ -1,9 +1,7 @@
 package com.mocha.controller;
 
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +19,7 @@ public class MochaController {
 	@RequestMapping("/create")
 	public MochaResponse create(@RequestParam(value="name", defaultValue="World") String name) {
 		
+		System.out.println("### test code ###");
 		mochaService.initDigest(name);
 		
 		return new MochaResponse(true);
