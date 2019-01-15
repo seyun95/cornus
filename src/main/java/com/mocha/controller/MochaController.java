@@ -16,10 +16,22 @@ public class MochaController {
 	@Autowired
 	MochaService mochaService;
 	
-	@RequestMapping("/create")
-	public MochaResponse create(@RequestParam(value="name", defaultValue="World") String name) {
+	@RequestMapping("/info")
+	public MochaResponse info(@RequestParam Map<String, String> param) {
 		
-		System.out.println("### test code ###");
+		String msg = "Mocha Project, Version 1.0";
+		
+		MochaResponse response = new MochaResponse();
+		response.setMessage(msg);
+		response.setResult(true);
+		
+		return response;
+	}
+	
+	@RequestMapping("/create")
+	public MochaResponse create(@RequestParam Map<String, String> param) {
+		
+		String name = param.get("name");
 		mochaService.initDigest(name);
 		
 		return new MochaResponse(true);
@@ -38,7 +50,28 @@ public class MochaController {
 	
 	@RequestMapping("/quantile")
 	public MochaResponse quantile(@RequestParam Map<String, String> param) {
-		return new MochaResponse(true);
+		
+		String name = param.get("name");
+		int slot = Integer.parseInt(param.get("slot"));
+		double q = Double.parseDouble(param.get("value"));
+
+		MochaResponse response = new MochaResponse();
+		response.setQuantine(mochaService.getQuantile(name, slot, q));
+		response.setResult(true);
+		return response;
+	}
+	
+	@RequestMapping("/cdf")
+	public MochaResponse cdf(@RequestParam Map<String, String> param) {
+		
+		String name = param.get("name");
+		int slot = Integer.parseInt(param.get("slot"));
+		double x = Double.parseDouble(param.get("value"));
+		
+		MochaResponse response = new MochaResponse();
+		response.setCdf(mochaService.getCdf(name, slot, x));
+		response.setResult(true);
+		return response;
 	}
 	
 	@RequestMapping("/centroids")
@@ -48,6 +81,7 @@ public class MochaController {
 	
 	@RequestMapping("/delete")
 	public MochaResponse delete(@RequestParam Map<String, String> param) {
+		
 		return new MochaResponse(true);
 	}
 	

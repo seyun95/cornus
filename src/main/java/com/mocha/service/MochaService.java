@@ -41,17 +41,14 @@ public class MochaService {
 	
 	public boolean add(String name, int slot, double value) {
 		
-		boolean result = false;
 		Map<Integer, EgDigest> digestMap = learningMap.get(name);
 		digestMap.get(slot).add(value);
 		
-		return result;
+		return true;
 	}
 	
 	public double getQuantile(String name, int slot, double q) {
 		Map<Integer, EgDigest> digestMap = learningMap.get(name);
-		EgDigest egDigest = digestMap.get(slot);
-		double val = egDigest.quantile(q);
 		return digestMap.get(slot).quantile(q);
 		
 	}
@@ -60,5 +57,31 @@ public class MochaService {
 		Map<Integer, EgDigest> digestMap = learningMap.get(name);
 		return digestMap.get(slot).cdf(x);
 		
-	}	
+	}
+	
+	public double delete(String name, int slot, double x) {
+		Map<Integer, EgDigest> digestMap = learningMap.get(name);
+		return digestMap.get(slot).cdf(x);
+		
+	}
+
+	public boolean save(String name, int slot, double x) {
+		Map<Integer, EgDigest> digestMap = learningMap.get(name);
+		
+		digestMap.get(slot).backup();
+		return true;
+		
+	}
+
+	public boolean load(String name, int slot, double x) {
+		Map<Integer, EgDigest> digestMap = learningMap.get(name);
+		
+		// TODO 로드시 기존 digest 정보를 삭제하고 다시 만들었던가?
+		// TODO 이전 정보 확인해 보
+		
+		
+		return true;
+		
+	}
+
 }
