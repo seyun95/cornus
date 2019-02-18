@@ -65,7 +65,7 @@ public class MochaService {
 		
 	}
 
-	public boolean save(String name, int slot, double x) {
+	public boolean save(String name, int slot) {
 		Map<Integer, EgDigest> digestMap = learningMap.get(name);
 		
 		digestMap.get(slot).backup();
@@ -73,7 +73,7 @@ public class MochaService {
 		
 	}
 
-	public boolean load(String name, int slot, double x) {
+	public boolean load(String name, int slot) {
 		Map<Integer, EgDigest> digestMap = learningMap.get(name);
 		
 		// TODO 로드시 기존 digest 정보를 삭제하고 다시 만들었던가?

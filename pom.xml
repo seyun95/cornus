@@ -43,12 +43,18 @@
 			<artifactId>t-digest</artifactId>
 			<version>3.2</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.8.1</version>
+		</dependency>
+        		
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
+				<groupId>org.springframework.boot</groupId>"C:/Works/enblack/Anomaly_Detect_20181118/mocha/pom.xml"
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
