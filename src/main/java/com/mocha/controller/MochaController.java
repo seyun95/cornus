@@ -19,7 +19,7 @@ public class MochaController {
 	@RequestMapping("/info")
 	public MochaResponse info(@RequestParam Map<String, String> param) {
 		
-		String msg = "Mocha Project, Version 1.0";
+		String msg = "Mocha Project, Version 0.2";
 		
 		MochaResponse response = new MochaResponse();
 		response.setMessage(msg);

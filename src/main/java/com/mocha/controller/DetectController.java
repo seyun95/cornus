@@ -122,14 +122,20 @@ public class DetectController {
 	 * delete : tdigest 삭제하기
 	 * */
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public void delete(@RequestParam(value="name", defaultValue="delete") String name) {
+	public ResponseEntity<Map<String, String>> delete(@RequestParam(value="name", defaultValue="delete") String name) {
+		Map<String, String> map = new LinkedHashMap<>();
+		map.put("status", "not implemented");
+		return ResponseEntity.ok(map);			
 	}
 	
 	/**
 	 * update : tdigest 데이터 보정
 	 * */
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public void update(@RequestParam(value="name", defaultValue="update") String name) {
+	public ResponseEntity<Map<String, String>> update(@RequestParam(value="name", defaultValue="update") String name) {
+		Map<String, String> map = new LinkedHashMap<>();
+		map.put("status", "not implemented");
+		return ResponseEntity.ok(map);	
 	}
 	
 }
